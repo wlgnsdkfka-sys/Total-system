@@ -1,22 +1,28 @@
-# TC / JPT GUI 다운로드
+# TC / JPT GUI v2
 
-[**TC_JPT_GUI.zip 다운로드**](https://github.com/wlgnsdkfka-sys/Total-system/raw/refs/heads/gui-download-20261021/downloads/TC_JPT_GUI.zip)
+[**GUI v2 ZIP 다운로드**](https://github.com/wlgnsdkfka-sys/Total-system/raw/refs/heads/gui-download-20261021/downloads/TC_JPT_GUI_v2.zip)
 
-다운로드가 바로 시작되지 않으면 [ZIP 파일 페이지](downloads/TC_JPT_GUI.zip)를 열고 오른쪽 위의 **Download raw file** 버튼을 누르세요. 비공개 저장소라면 이 저장소에 접근할 수 있는 GitHub 계정으로 로그인해야 합니다.
+링크가 바로 열리지 않으면 [ZIP 파일 페이지](downloads/TC_JPT_GUI_v2.zip)를 열고 **Download raw file (↓)**를 누르세요. 비공개 저장소는 접근 권한이 있는 GitHub 계정으로 로그인해야 합니다.
+
+## v2 변경 내용
+
+1. 단계별 온도 기록을 최신순으로 표시합니다.
+2. 선택된 20초 샘플의 TC1~8 평균·표본 표준편차(N−1)를 기록하고 출력별 표준편차 그래프를 표시합니다.
+3. 안정화와 구간 선택을 표준편차 기준으로 변경했습니다. 최신 20초의 모든 TC 표준편차가 입력 허용값 이하일 때 조기 상승합니다.
+4. 두 번째 탭에서 Average Temp − 포화온도(°C) 대 Total Flux(W/cm²) 보일링 커브를 그립니다. CSV/직접 입력, 선형·로그 축, 오차막대, CSV·ZIP·PNG 내보내기를 지원합니다.
+5. 세 번째 탭에서 포화온도(기본 100°C), 열전도율, 간격, 가중치, TC 채널 대응과 열유속 부호를 설정·저장할 수 있습니다.
 
 ## Windows 실행
 
-1. Python 3.10 이상을 설치합니다.
-2. 내려받은 ZIP의 압축을 모두 풉니다.
-3. `TC_JPT_GUI` 폴더의 **실행하기.bat**를 더블클릭합니다.
-4. 브라우저에 GUI가 열리면 **가상 실험 예시값 불러오기 → 가상 실험 시작**으로 확인할 수 있습니다.
+Python 3.10 이상을 설치한 뒤 ZIP 압축을 모두 풀고 `TC_JPT_GUI/실행하기.bat`를 더블클릭하세요. 별도 Python 패키지는 필요하지 않습니다. 자세한 설명은 ZIP 안의 `사용설명서.txt`에 있습니다.
 
-설정 입력, TC1~8 온도 그래프, 20초 기록 선택, 결과 ZIP 저장, 가상 긴급중단을 지원합니다. 자세한 설명은 ZIP 안의 `사용설명서.txt`에 있습니다.
+## 계산 및 검증 범위
 
-**현재는 가상 실험·CSV 재생 버전입니다. 실제 NI 셔터와 JPT 레이저 제어 연결은 아직 구현되지 않았습니다.** Python/API 자동테스트 41개와 Linux Chromium 브라우저 동작, 압축 해제 후 실행을 확인했습니다. Windows 실제 PC에서의 실행과 실제 장비 동작은 추가 검증 대상입니다.
+기본 상수는 VI 도면의 참고값이며, TC 쌍 배치·외삽 방향·열유속 부호를 실제 VI와 대조해야 합니다. 기존 VI와 동일한 계산이라고 검증한 상태는 아닙니다. 설정 탭에 적용식을 명시했습니다.
 
-## 파일 확인
+현재 버전은 **가상 실험·CSV 재생용**입니다. 실제 NI 셔터와 JPT 레이저는 아직 연결되지 않았습니다. Linux에서 자동테스트 55개, 새 ZIP 압축 해제 후 테스트, Chromium 브라우저의 세 탭·다운로드·임계온도/긴급중단을 검증했습니다. Windows 실제 PC와 실제 장비 검증은 남아 있습니다.
 
+- 버전: 2.0.0
 - 배포일: 2026-10-21 (한국 시간)
-- 크기: 240,279 bytes
-- SHA-256: `83012bfe1b29c1c800c06ccbdf0c63cd9ec1ac37eab2c64ec19f94e2fb6f554f`
+- ZIP 크기: 301,758 bytes
+- SHA-256: `e5a4bee1ac702fe78c43e7520bfee7c7af234226488c6e08797aed46d72163da`
